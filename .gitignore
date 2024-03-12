@@ -36,3 +36,26 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+*.class
+eclipse
+nbproject
+.settings
+.project
+.classpath
+.ideaDataSources
+dataSources
+tags
+TAGS
+target
+*/target
+*.todo
+*.swp
+*.log
+*.bak
+.idea
+*.ipr
+*.imr
+*.iws
+*.iml
+*.ids
