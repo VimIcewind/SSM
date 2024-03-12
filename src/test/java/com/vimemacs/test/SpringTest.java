@@ -21,7 +21,7 @@ public class SpringTest {
         // 调用 sayHello 方法
         springTest.sayHello();
     }
-    
+
     public void sayHello() {
         System.out.println("Hi, Spring!");
     }
