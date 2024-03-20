@@ -15,7 +15,7 @@ import java.util.List;
  */
 @Service
 public class UserServiceImpl implements UserService {
-    @Autowired
+    @Autowired(required = false)
     private UserDao userDao;
 
     @Override
