@@ -14,7 +14,7 @@ import java.util.List;
  */
 @Service
 public class UserServiceImpl implements UserService {
-    @Resource
+    @Resource(name = "userDao")
     private UserDao userDao;
 
     @Override
