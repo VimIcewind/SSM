@@ -3,6 +3,7 @@ package com.vimemacs.service.impl;
 import com.vimemacs.dao.UserDao;
 import com.vimemacs.model.User;
 import com.vimemacs.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -14,7 +15,7 @@ import java.util.List;
  */
 @Service
 public class UserServiceImpl implements UserService {
-    @Resource(name = "userDao")
+    @Autowired
     private UserDao userDao;
 
     @Override
