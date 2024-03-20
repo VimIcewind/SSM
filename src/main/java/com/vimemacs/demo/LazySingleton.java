@@ -5,7 +5,7 @@ package com.vimemacs.demo;
  * @date 2024/3/20 16:55
  */
 public class LazySingleton {
-    private static LazySingleton singleton = null;
+    private static volatile LazySingleton singleton = null;
     
     private LazySingleton(){
         
