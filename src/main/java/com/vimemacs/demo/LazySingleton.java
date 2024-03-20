@@ -11,9 +11,14 @@ public class LazySingleton {
         
     }
     
-    public static synchronized LazySingleton getInstance() {
+    public static LazySingleton getInstance() {
         if (null == singleton) {
-            singleton = new LazySingleton();
+            synchronized (LazySingleton.class) {
+                if (null == singleton) {
+                    // 创建对象，非原子操作
+                    singleton = new LazySingleton();
+                }
+            }
         }
         return singleton;
     }
