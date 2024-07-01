@@ -39,4 +39,14 @@ public class UserController {
         System.out.println(user.getPassword());
         return "hello";
     }
+    
+    @GetMapping("findByName")
+    public String findByName(@RequestParam("name") String name) {
+        List<User> userList = userService.findByName(name);
+        for (User user : userList) {
+            System.out.println("id: " + user.getId());
+            System.out.println("name: " + user.getName());
+        }
+        return "hello";
+    }
 }
