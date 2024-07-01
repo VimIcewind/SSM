@@ -27,4 +27,9 @@
         select count(*) from user
         where name = #{name}
     </select>
+    
+    <!-- 插入用户数据 -->
+    <insert id="insert" parameterType="com.vimemacs.model.User">
+        insert into user(id, name, password) value (#{id}, #{name}, #{password});
+    </insert>
 </mapper>

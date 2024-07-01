@@ -39,4 +39,9 @@ public class UserServiceImpl implements UserService {
     public int countByName(String name) {
         return userDao.countByName(name);
     }
+
+    @Override
+    public int insert(User user) {
+        return userDao.insert(user);
+    }
 }

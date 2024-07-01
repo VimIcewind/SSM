@@ -16,4 +16,6 @@ public interface UserService {
     List<User> findByName(String name);
     
     int countByName(String name);
+    
+    int insert(User user);
 }

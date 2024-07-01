@@ -5,6 +5,7 @@ import com.vimemacs.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -53,6 +54,13 @@ public class UserController {
     @GetMapping("countByName")
     public String countByName(@RequestParam("name") String name) {
         int count = userService.countByName(name);
+        System.out.println(count);
+        return "hello";
+    }
+    
+    @GetMapping("insert")
+    public String insert(@ModelAttribute("user") User user) {
+        int count = userService.insert(user);
         System.out.println(count);
         return "hello";
     }
