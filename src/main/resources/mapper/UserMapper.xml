@@ -6,8 +6,13 @@
         ${prefix}.name as "name",
         ${prefix}.password as "password"
     </sql>
+    <resultMap id="userMap" type="com.vimemacs.model.User">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="password" column="password"/>
+    </resultMap>
     <!-- 获取所有用户 -->
-    <select id="findAll" resultType="com.vimemacs.model.User">
+    <select id="findAll" resultMap="userMap">
         select
             <include refid="userField">
                 <property name="prefix" value="a"/>
