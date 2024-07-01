@@ -54,5 +54,15 @@
             password = #{password}
         where id = #{id}
     </update>
+
+    <delete id="delete" parameterType="int">
+        delete from user
+        where id=#{id}
+    </delete>
+    
+    <delete id="deleteByName" parameterType="String">
+        delete from user
+        where name=#{name}
+    </delete>
     
 </mapper>

@@ -71,4 +71,19 @@ public class UserController {
         System.out.println(count);
         return "hello";
     }
+
+    @GetMapping("delete")
+    public String delete(@RequestParam("id") Integer id) {
+        int count = userService.delete(id);
+        System.out.println(count);
+        return "hello";
+    }
+
+    @GetMapping("deleteByName")
+    public String deleteByName(@RequestParam("name") String name) {
+        int count = userService.deleteByName(name);
+        System.out.println(count);
+        return "hello";
+    }
+    
 }
