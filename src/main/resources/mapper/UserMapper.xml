@@ -12,4 +12,9 @@
             <include refid="userField"/>
         from user as a
     </select>
+    <!-- 根据用户 ID 查询 user 表 -->
+    <select id="findById" parameterType="String" resultType="com.vimemacs.model.User">
+        select * from user
+        where id = #{id}
+    </select>
 </mapper>
