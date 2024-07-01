@@ -64,4 +64,11 @@ public class UserController {
         System.out.println(count);
         return "hello";
     }
+    
+    @GetMapping("update")
+    public String update(@ModelAttribute("user") User user) {
+        int count = userService.update(user);
+        System.out.println(count);
+        return "hello";
+    }
 }

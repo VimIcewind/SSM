@@ -20,4 +20,6 @@ public interface UserDao {
     int countByName(String name);
     
     int insert(User user);
+    
+    int update(User user);
 }

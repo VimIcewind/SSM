@@ -18,4 +18,6 @@ public interface UserService {
     int countByName(String name);
     
     int insert(User user);
+    
+    int update(User user);
 }

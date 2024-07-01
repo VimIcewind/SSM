@@ -48,4 +48,11 @@
         insert into user(id, name, password) value (#{id}, #{name}, #{password});
     </insert>
     
+    <update id="update" parameterType="com.vimemacs.model.User">
+        update user set
+            name = #{name},
+            password = #{password}
+        where id = #{id}
+    </update>
+    
 </mapper>
