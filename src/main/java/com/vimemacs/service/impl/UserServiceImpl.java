@@ -34,4 +34,9 @@ public class UserServiceImpl implements UserService {
     public List<User> findByName(String name) {
         return userDao.findByName(name);
     }
+
+    @Override
+    public int countByName(String name) {
+        return userDao.countByName(name);
+    }
 }

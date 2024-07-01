@@ -22,4 +22,9 @@
         select * from user
         where name = #{name}
     </select>
+    <!-- 通过名称查询用户个数 -->
+    <select id="countByName" parameterType="String" resultType="int">
+        select count(*) from user
+        where name = #{name}
+    </select>
 </mapper>

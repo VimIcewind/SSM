@@ -16,4 +16,6 @@ public interface UserDao {
     User findById(String id);
     
     List<User> findByName(String name);
+    
+    int countByName(String name);
 }

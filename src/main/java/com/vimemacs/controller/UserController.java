@@ -49,4 +49,11 @@ public class UserController {
         }
         return "hello";
     }
+
+    @GetMapping("countByName")
+    public String countByName(@RequestParam("name") String name) {
+        int count = userService.countByName(name);
+        System.out.println(count);
+        return "hello";
+    }
 }
