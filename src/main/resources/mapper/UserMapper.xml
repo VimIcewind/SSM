@@ -2,14 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.vimemacs.dao.UserDao">
     <sql id="userField">
-        a.id as "id",
-        a.name as "name",
-        a.password as "password"
+        ${prefix}.id as "id",
+        ${prefix}.name as "name",
+        ${prefix}.password as "password"
     </sql>
     <!-- 获取所有用户 -->
     <select id="findAll" resultType="com.vimemacs.model.User">
         select
-            <include refid="userField"/>
+            <include refid="userField">
+                <property name="prefix" value="a"/>
+            </include> 
         from user as a
     </select>
     <!-- 根据用户 ID 查询 user 表 -->
