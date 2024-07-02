@@ -152,12 +152,14 @@
         insert into user(name, password) value (#{name}, #{password});
     </insert>
     -->
+    <!--
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.vimemacs.model.User">
         <selectKey keyProperty="id" resultType="int" order="BEFORE">
             select max(id) + 1 as id from user
         </selectKey>
         insert into user(id, name, password) value (#{id}, #{name}, #{password});
     </insert>
+    -->
     
     <!--
     <update id="update" parameterType="com.vimemacs.model.User">
@@ -181,6 +183,7 @@
         where id = #{id}
     </update>
     -->
+    <!--
     <update id="update" parameterType="com.vimemacs.model.User">
         update user
         <set>
@@ -193,16 +196,21 @@
         </set>
         where id = #{id}
     </update>
+    -->
     
 
+    <!--
     <delete id="delete" parameterType="int">
         delete from user
         where id=#{id}
     </delete>
+    -->
     
+    <!--
     <delete id="deleteByName" parameterType="String">
         delete from user
         where name=#{name}
     </delete>
+    -->
     
 </mapper>

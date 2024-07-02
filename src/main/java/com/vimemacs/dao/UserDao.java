@@ -1,10 +1,7 @@
 package com.vimemacs.dao;
 
 import com.vimemacs.model.User;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -35,11 +32,16 @@ public interface UserDao {
     
     int countByName(String name);
     
+    @Insert("insert into user(name, password) values(#{name}, #{password})")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
     int insert(User user);
     
+    @Update("update user set name = #{name}, password = #{password} where id = #{id}")
     int update(User user);
     
+    @Delete("delete from user where id = #{id}")
     int delete(Integer id);
     
+    @Delete("delete from user where name = #{name}")
     int deleteByName(String name);
 }
