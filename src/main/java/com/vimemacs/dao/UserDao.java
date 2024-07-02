@@ -16,7 +16,7 @@ public interface UserDao {
     
     User findById(String id);
     
-    List<User> findByName(String name);
+    List<User> findByName(@Param("name") String name);
 
     List<User> findByNameAndPassword(@Param("name") String name, @Param("password") String password);
     

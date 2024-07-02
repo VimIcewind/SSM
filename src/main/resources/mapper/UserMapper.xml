@@ -23,10 +23,30 @@
         where id = #{id}
     </select>
     <!-- 通过名称查询用户 -->
+    <!--
     <select id="findByName" parameterType="String" resultType="com.vimemacs.model.User">
         select * from user
         where name = #{name}
     </select>
+    -->
+    <select id="findByName" parameterType="String" resultType="com.vimemacs.model.User">
+        select * from user
+        where 1=1
+        <if test="name != null and name !=''">
+            and name = #{name}
+        </if>
+    </select>
+    <!--
+    <select id="findByName" parameterType="String" resultMap="userMap">
+        select
+        <include refid="userField"></include>
+        from user a
+        where 1=1
+        <if test="name != null and name !=''">
+            and name = #{name}
+        </if>
+    </select>
+    -->
     <!-- 通过用户名 name 和密码 password 查询用户 -->
     <!--
     <select id="findByNameAndPassword" parameterType="String" resultMap="userMap">
