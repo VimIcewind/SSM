@@ -14,6 +14,8 @@ public interface UserService {
     User findById(String id);
     
     List<User> findByName(String name);
+
+    List<User> findByNameAndPassword(String name, String password);
     
     int countByName(String name);
     

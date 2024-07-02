@@ -51,6 +51,16 @@ public class UserController {
         return "hello";
     }
 
+    @GetMapping("findByNameAndPassword")
+    public String findByNameAndPassword(@RequestParam("name") String name, @RequestParam("password") String password) {
+        List<User> userList = userService.findByNameAndPassword(name, password);
+        for (User user : userList) {
+            System.out.println("id: " + user.getId());
+            System.out.println("name: " + user.getName());
+        }
+        return "hello";
+    }
+
     @GetMapping("countByName")
     public String countByName(@RequestParam("name") String name) {
         int count = userService.countByName(name);
@@ -85,5 +95,4 @@ public class UserController {
         System.out.println(count);
         return "hello";
     }
-    
 }

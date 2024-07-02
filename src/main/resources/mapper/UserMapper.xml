@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.vimemacs.dao.UserDao">
     <sql id="userField">
-        ${prefix}.id as "id",
-        ${prefix}.name as "name",
-        ${prefix}.password as "password"
+        a.id as "id",
+        a.name as "name",
+        a.password as "password"
     </sql>
     <resultMap id="userMap" type="com.vimemacs.model.User">
         <id property="id" column="id"/>
@@ -14,9 +14,7 @@
     <!-- 获取所有用户 -->
     <select id="findAll" resultMap="userMap">
         select
-            <include refid="userField">
-                <property name="prefix" value="a"/>
-            </include> 
+            <include refid="userField"> </include> 
         from user as a
     </select>
     <!-- 根据用户 ID 查询 user 表 -->
@@ -29,12 +27,25 @@
         select * from user
         where name = #{name}
     </select>
+    <!-- 通过用户名 name 和密码 password 查询用户 -->
+    <select id="findByNameAndPassword" parameterType="String" resultMap="userMap">
+        select
+        <include refid="userField"></include>
+        from user a
+        where 1 = 1
+        <if test="name != null and name != ''">
+            and name = #{name}
+        </if>
+        <if test="password != null and password != ''">
+            and password = #{password}
+        </if>
+    </select>
     <!-- 通过名称查询用户个数 -->
     <select id="countByName" parameterType="String" resultType="int">
         select count(*) from user
         where name = #{name}
     </select>
-    
+
     <!-- 插入用户数据 -->
     <!--
     <insert id="insert" parameterType="com.vimemacs.model.User">

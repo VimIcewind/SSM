@@ -1,6 +1,7 @@
 package com.vimemacs.dao;
 
 import com.vimemacs.model.User;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -16,6 +17,8 @@ public interface UserDao {
     User findById(String id);
     
     List<User> findByName(String name);
+
+    List<User> findByNameAndPassword(@Param("name") String name, @Param("password") String password);
     
     int countByName(String name);
     

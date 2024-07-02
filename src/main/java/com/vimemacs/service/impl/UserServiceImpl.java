@@ -36,6 +36,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> findByNameAndPassword(String name, String password) {
+        return userDao.findByNameAndPassword(name, password);
+    }
+
+    @Override
     public int countByName(String name) {
         return userDao.countByName(name);
     }
