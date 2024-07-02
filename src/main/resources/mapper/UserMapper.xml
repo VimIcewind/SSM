@@ -28,6 +28,7 @@
         where name = #{name}
     </select>
     <!-- 通过用户名 name 和密码 password 查询用户 -->
+    <!--
     <select id="findByNameAndPassword" parameterType="String" resultMap="userMap">
         select
         <include refid="userField"></include>
@@ -39,6 +40,24 @@
         <if test="password != null and password != ''">
             and password = #{password}
         </if>
+    </select>
+    -->
+    <select id="findByNameAndPassword" parameterType="String" resultMap="userMap">
+        select
+        <include refid="userField"></include>
+        from user a
+        where 1 = 1
+        <choose>
+            <when test="name != null and name != ''">
+                and name = #{name}
+            </when>
+            <when test="password != null and password != ''">
+                and password = #{password}
+            </when>
+            <otherwise>
+                order by id desc
+            </otherwise>
+        </choose>
     </select>
     <!-- 通过名称查询用户个数 -->
     <select id="countByName" parameterType="String" resultType="int">
