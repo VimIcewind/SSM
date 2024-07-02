@@ -100,10 +100,24 @@
         insert into user(id, name, password) value (#{id}, #{name}, #{password});
     </insert>
     
+    <!--
     <update id="update" parameterType="com.vimemacs.model.User">
         update user set
             name = #{name},
             password = #{password}
+        where id = #{id}
+    </update>
+    -->
+    <update id="update" parameterType="com.vimemacs.model.User">
+        update user
+        <trim prefix="set" suffixOverrides=",">
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password}
+            </if>
+        </trim>
         where id = #{id}
     </update>
 
