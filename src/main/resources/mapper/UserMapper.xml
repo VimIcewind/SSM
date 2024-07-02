@@ -42,6 +42,7 @@
         </if>
     </select>
     -->
+    <!--
     <select id="findByNameAndPassword" parameterType="String" resultMap="userMap">
         select
         <include refid="userField"></include>
@@ -54,12 +55,24 @@
             <when test="password != null and password != ''">
                 and password = #{password}
             </when>
-            <!--
             <otherwise>
                 order by id desc
             </otherwise>
-            -->
         </choose>
+    </select>
+    -->
+    <select id="findByNameAndPassword" parameterType="String" resultMap="userMap">
+        select
+        <include refid="userField"></include>
+        from user a
+        <trim prefix="where" prefixOverrides="and">
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+        </trim>
     </select>
     <!-- 通过名称查询用户个数 -->
     <select id="countByName" parameterType="String" resultType="int">
