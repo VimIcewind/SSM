@@ -30,7 +30,7 @@ public class UserController {
             System.out.println("id: " + user.getId());
             System.out.println("name: " + user.getName());
         }
-        return "success";
+        return "hello";
     }
 
     @GetMapping("findById")
@@ -39,7 +39,7 @@ public class UserController {
         System.out.println(user.getId());
         System.out.println(user.getName());
         System.out.println(user.getPassword());
-        return "success";
+        return "hello";
     }
 
     @GetMapping("findByIds")
@@ -62,7 +62,7 @@ public class UserController {
             System.out.println("id: " + user.getId());
             System.out.println("name: " + user.getName());
         }
-        return "success";
+        return "hello";
     }
 
     @GetMapping("findByNameAndPassword")
@@ -72,41 +72,41 @@ public class UserController {
             System.out.println("id: " + user.getId());
             System.out.println("name: " + user.getName());
         }
-        return "success";
+        return "hello";
     }
 
     @GetMapping("countByName")
     public String countByName(@RequestParam("name") String name) {
         int count = userService.countByName(name);
         System.out.println(count);
-        return "success";
+        return "hello";
     }
     
     @GetMapping("insert")
     public String insert(@ModelAttribute("user") User user) {
         int count = userService.insert(user);
         System.out.println(count);
-        return "success";
+        return "hello";
     }
     
     @GetMapping("update")
     public String update(@ModelAttribute("user") User user) {
         int count = userService.update(user);
         System.out.println(count);
-        return "success";
+        return "hello";
     }
 
     @GetMapping("delete")
     public String delete(@RequestParam("id") Integer id) {
         int count = userService.delete(id);
         System.out.println(count);
-        return "success";
+        return "hello";
     }
 
     @GetMapping("deleteByName")
     public String deleteByName(@RequestParam("name") String name) {
         int count = userService.deleteByName(name);
         System.out.println(count);
-        return "success";
+        return "hello";
     }
 }

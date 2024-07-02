@@ -99,6 +99,7 @@
         </choose>
     </select>
     -->
+    <!--
     <select id="findByNameAndPassword" parameterType="String" resultMap="userMap">
         select
         <include refid="userField"></include>
@@ -111,6 +112,20 @@
                 and password = #{password}
             </if>
         </trim>
+    </select>
+    -->
+    <select id="findByNameAndPassword" parameterType="String" resultType="com.vimemacs.model.User">
+        <bind name="name_pattern" value="'%' + name + '%'"/>
+        <bind name="password_pattern" value="'%' + password + '%'"/>
+        select * from user
+        <where>
+            <if test="name != null and name != ''">
+                and name like #{name_pattern}
+            </if>
+            <if test="password != null and password != ''">
+                and password like #{password_pattern}
+            </if>
+        </where>
     </select>
     <!-- 通过名称查询用户个数 -->
     <select id="countByName" parameterType="String" resultType="int">
