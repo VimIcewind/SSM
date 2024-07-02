@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author HWD
@@ -28,8 +29,10 @@ public interface UserDao {
     @Select("select * from user where name = #{name}")
     List<User> findByName(@Param("name") String name);
 
-    @Select("select * from user where name = #{name} and password = #{password}")
-    List<User> findByNameAndPassword(@Param("name") String name, @Param("password") String password);
+    // @Select("select * from user where name = #{name} and password = #{password}")
+    // List<User> findByNameAndPassword(@Param("name") String name, @Param("password") String password);
+    
+    List<User> findByNameAndPassword(Map<String, String> map);
     
     int countByName(String name);
     

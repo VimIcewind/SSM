@@ -135,6 +135,17 @@
         </where>
     </select>
     -->
+    <select id="findByNameAndPassword" parameterType="java.util.Map" resultMap="userMap">
+        select * from user
+        <where>
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+        </where>
+    </select>
     <!-- 通过名称查询用户个数 -->
     <select id="countByName" parameterType="String" resultType="int">
         select count(*) from user

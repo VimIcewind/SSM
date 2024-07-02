@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author HWD
@@ -40,9 +41,14 @@ public class UserServiceImpl implements UserService {
         return userDao.findByName(name);
     }
 
+    // @Override
+    // public List<User> findByNameAndPassword(String name, String password) {
+    //     return userDao.findByNameAndPassword(name, password);
+    // }
+
     @Override
-    public List<User> findByNameAndPassword(String name, String password) {
-        return userDao.findByNameAndPassword(name, password);
+    public List<User> findByNameAndPassword(Map<String, String> map) {
+        return userDao.findByNameAndPassword(map);
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.vimemacs.service;
 import com.vimemacs.model.User;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author HWD
@@ -17,7 +18,9 @@ public interface UserService {
     
     List<User> findByName(String name);
 
-    List<User> findByNameAndPassword(String name, String password);
+    // List<User> findByNameAndPassword(String name, String password);
+
+    List<User> findByNameAndPassword(Map<String, String> map);
     
     int countByName(String name);
     
