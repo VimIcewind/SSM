@@ -138,6 +138,7 @@
         where id = #{id}
     </update>
     -->
+    <!--
     <update id="update" parameterType="com.vimemacs.model.User">
         update user
         <trim prefix="set" suffixOverrides=",">
@@ -150,6 +151,20 @@
         </trim>
         where id = #{id}
     </update>
+    -->
+    <update id="update" parameterType="com.vimemacs.model.User">
+        update user
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    
 
     <delete id="delete" parameterType="int">
         delete from user
