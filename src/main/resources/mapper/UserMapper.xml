@@ -29,12 +29,22 @@
         where name = #{name}
     </select>
     -->
+    <!--
     <select id="findByName" parameterType="String" resultType="com.vimemacs.model.User">
         select * from user
         where 1=1
         <if test="name != null and name !=''">
             and name = #{name}
         </if>
+    </select>
+    -->
+    <select id="findByName" parameterType="String" resultType="com.vimemacs.model.User">
+        select * from user
+        <where>
+            <if test="name != null and name !=''">
+            and name = #{name}
+           </if>
+        </where>
     </select>
     <!--
     <select id="findByName" parameterType="String" resultMap="userMap">
