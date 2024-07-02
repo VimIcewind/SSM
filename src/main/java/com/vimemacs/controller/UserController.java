@@ -67,28 +67,28 @@ public class UserController {
         return "success";
     }
 
-    //@GetMapping("findByNameAndPassword")
-    //public String findByNameAndPassword(@RequestParam("name") String name, @RequestParam("password") String password) {
-    //    List<User> userList = userService.findByNameAndPassword(name, password);
-    //    for (User user : userList) {
-    //        System.out.println("id: " + user.getId());
-    //        System.out.println("name: " + user.getName());
-    //    }
-    //    return "success";
-    //}
-    
     @GetMapping("findByNameAndPassword")
-    public String findByNameAndPassword(Model model) {
-        Map<String, String> map = new HashMap<>();
-        map.put("name", "Vim");
-        map.put("password", "123");
-        List<User> userList = userService.findByNameAndPassword(map);
+    public String findByNameAndPassword(@RequestParam("name") String name, @RequestParam("password") String password) {
+        List<User> userList = userService.findByNameAndPassword(name, password);
         for (User user : userList) {
             System.out.println("id: " + user.getId());
             System.out.println("name: " + user.getName());
         }
         return "success";
     }
+    
+    // @GetMapping("findByNameAndPassword")
+    // public String findByNameAndPassword(Model model) {
+    //     Map<String, String> map = new HashMap<>();
+    //     map.put("name", "Vim");
+    //     map.put("password", "123");
+    //     List<User> userList = userService.findByNameAndPassword(map);
+    //     for (User user : userList) {
+    //         System.out.println("id: " + user.getId());
+    //         System.out.println("name: " + user.getName());
+    //     }
+    //     return "success";
+    // }
 
     @GetMapping("countByName")
     public String countByName(@RequestParam("name") String name) {

@@ -32,7 +32,9 @@ public interface UserDao {
     // @Select("select * from user where name = #{name} and password = #{password}")
     // List<User> findByNameAndPassword(@Param("name") String name, @Param("password") String password);
     
-    List<User> findByNameAndPassword(Map<String, String> map);
+    // List<User> findByNameAndPassword(Map<String, String> map);
+
+    List<User> findByNameAndPassword(String name, String password);
     
     int countByName(String name);
     

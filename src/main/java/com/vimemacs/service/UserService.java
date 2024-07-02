@@ -18,9 +18,9 @@ public interface UserService {
     
     List<User> findByName(String name);
 
-    // List<User> findByNameAndPassword(String name, String password);
+    List<User> findByNameAndPassword(String name, String password);
 
-    List<User> findByNameAndPassword(Map<String, String> map);
+    // List<User> findByNameAndPassword(Map<String, String> map);
     
     int countByName(String name);
     

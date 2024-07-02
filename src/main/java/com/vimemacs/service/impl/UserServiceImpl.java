@@ -41,15 +41,15 @@ public class UserServiceImpl implements UserService {
         return userDao.findByName(name);
     }
 
-    // @Override
-    // public List<User> findByNameAndPassword(String name, String password) {
-    //     return userDao.findByNameAndPassword(name, password);
-    // }
-
     @Override
-    public List<User> findByNameAndPassword(Map<String, String> map) {
-        return userDao.findByNameAndPassword(map);
+    public List<User> findByNameAndPassword(String name, String password) {
+        return userDao.findByNameAndPassword(name, password);
     }
+
+    // @Override
+    // public List<User> findByNameAndPassword(Map<String, String> map) {
+    //     return userDao.findByNameAndPassword(map);
+    // }
 
     @Override
     public int countByName(String name) {

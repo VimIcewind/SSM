@@ -135,6 +135,7 @@
         </where>
     </select>
     -->
+    <!--
     <select id="findByNameAndPassword" parameterType="java.util.Map" resultMap="userMap">
         select * from user
         <where>
@@ -145,6 +146,11 @@
                 and password = #{password}
             </if>
         </where>
+    </select>
+    -->
+    <select id="findByNameAndPassword" parameterType="String" resultMap="userMap">
+        select * from user a
+        where 1 = 1 and name = #{param1} and password = #{param2}
     </select>
     <!-- 通过名称查询用户个数 -->
     <select id="countByName" parameterType="String" resultType="int">
