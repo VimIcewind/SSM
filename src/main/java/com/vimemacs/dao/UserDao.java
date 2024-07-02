@@ -28,6 +28,7 @@ public interface UserDao {
     @Select("select * from user where name = #{name}")
     List<User> findByName(@Param("name") String name);
 
+    @Select("select * from user where name = #{name} and password = #{password}")
     List<User> findByNameAndPassword(@Param("name") String name, @Param("password") String password);
     
     int countByName(String name);
