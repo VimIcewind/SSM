@@ -22,6 +22,14 @@
         select * from user
         where id = #{id}
     </select>
+    <!-- 根据用户 ID 集合查询 user 表 -->
+    <select id="findByIds"  resultType="com.vimemacs.model.User">
+        select * from user
+        where id in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
     <!-- 通过名称查询用户 -->
     <!--
     <select id="findByName" parameterType="String" resultType="com.vimemacs.model.User">

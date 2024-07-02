@@ -13,6 +13,8 @@ public interface UserService {
     
     User findById(String id);
     
+    List<User> findByIds(List<Integer> ids);
+    
     List<User> findByName(String name);
 
     List<User> findByNameAndPassword(String name, String password);

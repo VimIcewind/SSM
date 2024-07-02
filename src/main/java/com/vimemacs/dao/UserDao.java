@@ -15,6 +15,8 @@ public interface UserDao {
     List<User> findAll();
     
     User findById(String id);
+
+    List<User> findByIds(@Param("list") List<Integer> list);
     
     List<User> findByName(@Param("name") String name);
 
