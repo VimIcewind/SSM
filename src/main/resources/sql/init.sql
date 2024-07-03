@@ -51,3 +51,39 @@ CREATE TABLE `ice_user` (
 -- ----------------------------
 INSERT INTO `ice_user` VALUES ('1', 'Vim', '123', 35, 1);
 INSERT INTO `ice_user` VALUES ('2', 'Emacs', '123', 50, 2);
+
+-- ----------------------------------------
+-- Table structure for ice_school
+-- ----------------------------------------
+DROP TABLE IF EXISTS `ice_school`;
+CREATE TABLE `ice_school` (
+    `id` bigint(32) NOT NULL,
+    `name` varchar(255) DEFAULT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- -------------------------------
+-- Records of ice_school
+-- -------------------------------
+INSERT INTO `ice_school` VALUES ('1', 'CMU');
+INSERT INTO `ice_school` VALUES ('2', 'MIT');
+
+-- ----------------------------------------
+-- Table structure for ice_student
+-- ----------------------------------------
+DROP TABLE IF EXISTS `ice_student`;
+CREATE TABLE `ice_student` (
+    `id` bigint(32) NOT NULL,
+    `name` varchar(255) DEFAULT NULL,
+    `age` int(2) DEFAULT NULL,
+    `school_id` bigint(32) DEFAULT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- -------------------------------
+-- Records of ice_student
+-- -------------------------------
+INSERT INTO `ice_student` VALUES ('1', 'QianXuesen', 24, 2);
+INSERT INTO `ice_student` VALUES ('2', 'ZhangChaoyang', 25, 2);
+INSERT INTO `ice_student` VALUES ('3', 'LiKaifu', 25, 1);
+INSERT INTO `ice_student` VALUES ('4', 'LuQi', 25, 1);

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vimemacs.dao.IceSchoolDao">
+    <resultMap id="schoolMap" type="com.vimemacs.model.IceSchool">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <collection property="students" javaType="ArrayList" column="id" ofType="com.vimemacs.model.IceStudent"
+                     fetchType="lazy" select="com.vimemacs.dao.IceStudentDao.findBySchoolId">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+            <result property="age" column="age"/>
+        </collection>
+    </resultMap>
+    
+    <select id="findById" parameterType="Integer" resultMap="schoolMap">
+        SELECT * FROM ice_school WHERE id = #{id}
+    </select>
+</mapper>
