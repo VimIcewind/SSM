@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.vimemacs.dao.IceUserDao">
+    <!--
     <resultMap id="userMap" type="com.vimemacs.model.IceUser">
         <id property="id" column="id"/>
         <result property="name" column="name"/>
@@ -12,5 +13,25 @@
     <select id="findById" parameterType="Integer" resultMap="userMap">
         SELECT * FROM ice_user
         WHERE id = #{id}
+    </select>
+    -->
+    <resultMap id="userRoleMap" type="com.vimemacs.model.IceUser">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="password" column="password"/>
+        <collection property="iceRoleList" javaType="ArrayList" column="id" ofType="com.vimemacs.model.IceRole"
+                    fetchType="lazy" select="com.vimemacs.dao.IceRoleDao.findByUserId">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+        </collection>
+    </resultMap>
+    <select id="findById" parameterType="Integer" resultMap="userRoleMap">
+        SELECT * FROM ice_user
+        WHERE id = #{id}
+    </select>
+    <select id="findByRoleId" parameterType="Integer" resultType="com.vimemacs.model.IceUser">
+        SELECT * FROM ice_user WHERE id in (
+            select user_id from ice_user_role_rel where role_id = #{roleId}
+        )
     </select>
 </mapper>

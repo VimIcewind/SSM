@@ -87,3 +87,39 @@ INSERT INTO `ice_student` VALUES ('1', 'QianXuesen', 24, 2);
 INSERT INTO `ice_student` VALUES ('2', 'ZhangChaoyang', 25, 2);
 INSERT INTO `ice_student` VALUES ('3', 'LiKaifu', 25, 1);
 INSERT INTO `ice_student` VALUES ('4', 'LuQi', 25, 1);
+
+-- ----------------------------------------
+-- Table structure for ice_role
+-- ----------------------------------------
+DROP TABLE IF EXISTS `ice_role`;
+CREATE TABLE `ice_role` (
+    `id` bigint(32) NOT NULL,
+    `name` varchar(255) DEFAULT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- -------------------------------
+-- Records of ice_role
+-- -------------------------------
+INSERT INTO `ice_role` VALUES ('1', '班长');
+INSERT INTO `ice_role` VALUES ('2', '团支书');
+
+-- ----------------------------------------
+-- Table structure for ice_user_role_rel
+-- ----------------------------------------
+DROP TABLE IF EXISTS `ice_user_role_rel`;
+CREATE TABLE `ice_user_role_rel` (
+    `id` bigint(32) NOT NULL,
+    `user_id` bigint(32) DEFAULT NULL,
+    `role_id` bigint(32) DEFAULT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- -------------------------------
+-- Records of ice_user_role_rel
+-- -------------------------------
+INSERT INTO `ice_user_role_rel` VALUES ('1', '1', '1');
+INSERT INTO `ice_user_role_rel` VALUES ('2', '2', '2');
+INSERT INTO `ice_user_role_rel` VALUES ('3', '3', '1');
+INSERT INTO `ice_user_role_rel` VALUES ('4', '4', '2');
+

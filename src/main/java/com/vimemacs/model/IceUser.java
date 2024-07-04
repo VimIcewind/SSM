@@ -1,6 +1,7 @@
 package com.vimemacs.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author HWD
@@ -16,6 +17,8 @@ public class IceUser implements Serializable {
     private Integer age;
     
     private IceUserAddress iceUserAddress;
+    
+    private List<IceRole> iceRoleList;
 
     public Integer getId() {
         return id;
@@ -55,5 +58,13 @@ public class IceUser implements Serializable {
 
     public void setIceUserAddress(IceUserAddress iceUserAddress) {
         this.iceUserAddress = iceUserAddress;
+    }
+
+    public List<IceRole> getIceRoleList() {
+        return iceRoleList;
+    }
+
+    public void setIceRoleList(List<IceRole> iceRoleList) {
+        this.iceRoleList = iceRoleList;
     }
 }
