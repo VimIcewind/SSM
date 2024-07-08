@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.Map;
@@ -96,6 +97,20 @@ public class IceUserController {
     @RequestMapping("map")
     public String map(Model model, ModelMap modelMap, Map map) {
         return "map";
+    }
+    
+    @RequestMapping("modeAndView")
+    public ModelAndView modelAndView(){
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("name", "ice");
+        mv.setViewName("hello");
+        return mv;
+    }
+    
+    @RequestMapping("modeAndViewToo")
+    public String modelAndView(Model model){
+        model.addAttribute("name", "ice");
+        return "hello";
     }
     
     @GetMapping("findById")
