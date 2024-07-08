@@ -4,10 +4,7 @@ import com.vimemacs.model.IceUser;
 import com.vimemacs.service.IceUserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -77,6 +74,18 @@ public class IceUserController {
         return "Fetched parameter using params attribute = " + id;
     }
 
+    @GetMapping("findById/{id}")
+    public String findById(@PathVariable("id") String id) {
+        // ...
+        return "";
+    }
+
+    @PostMapping(path = "/add")
+    public String add(@RequestBody IceUser iceuser) {
+        // ...
+        return "";
+    }
+    
     @GetMapping("findById")
     public String findById(@RequestParam("id") Integer id) {
         IceUser iceUser = iceUserService.findById(id);
