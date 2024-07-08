@@ -2,6 +2,7 @@ package com.vimemacs.controller;
 
 import com.vimemacs.model.IceUser;
 import com.vimemacs.service.IceUserService;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
@@ -111,6 +113,22 @@ public class IceUserController {
     public String modelAndView(Model model){
         model.addAttribute("name", "ice");
         return "hello";
+    }
+    
+    @RequestMapping("request")
+    public ModelAndView request(HttpServletRequest request) {
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("name", "ice");
+        mv.setViewName("hello");
+        return mv;
+    }
+    
+    @RequestMapping("method")
+    public ModelAndView method(HttpMethod method) {
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("name", "ice");
+        mv.setViewName("hello");
+        return mv;
     }
     
     @GetMapping("findById")
