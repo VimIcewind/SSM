@@ -4,9 +4,11 @@ import com.vimemacs.model.IceUser;
 import com.vimemacs.service.IceUserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.Map;
 
 /**
  * @author HWD
@@ -84,6 +86,16 @@ public class IceUserController {
     public String add(@RequestBody IceUser iceuser) {
         // ...
         return "";
+    }
+    
+    @ModelAttribute
+    public void redirectTest(Model model) {
+        model.addAttribute("name", "ice");
+    }
+    
+    @RequestMapping("map")
+    public String map(Model model, ModelMap modelMap, Map map) {
+        return "map";
     }
     
     @GetMapping("findById")
