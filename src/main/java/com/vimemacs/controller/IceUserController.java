@@ -3,6 +3,7 @@ package com.vimemacs.controller;
 import com.vimemacs.model.IceUser;
 import com.vimemacs.service.IceUserService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +19,12 @@ import javax.annotation.Resource;
 public class IceUserController {
     @Resource
     private IceUserService iceUserService;
+    
+    @GetMapping("hello")
+    public String hello(Model model) {
+        model.addAttribute("message", "Hello SSM!");
+        return "hello";
+    }
     
     @GetMapping("findById")
     public String findById(@RequestParam("id") Integer id) {
